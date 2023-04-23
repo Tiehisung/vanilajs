@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <h5 style="text-transform: uppercase">pet registration regime</h5>
+    <div class="form">
+      <div class="inputs-div">
+        <input
+          id="pet-name"
+          type="text"
+          name="pet_name"
+          placeholder="Enter pet name"
+        />
+
+        <select id="pet-sex" name="pet_sex" id="">
+          <option value="">Select sex</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <input
+          id="pet-type"
+          type="text"
+          name="type"
+          placeholder="Enter pet type e.g Monkey"
+        />
+
+        <input
+          id="owner"
+          type="text"
+          name="owner"
+          placeholder="Enter owner's name"
+        />
+
+        <input
+          id="pet-age"
+          type="text"
+          name="age"
+          placeholder="Enter pet age"
+        />
+
+        <input
+          id="pet-color"
+          type="text"
+          name="color"
+          placeholder="Enter pet color"
+        />
+      </div>
+
+      <div>
+        <button id="register-btn" onclick="RegisterFn()">Register</button>
+        <button id="recall-btn" onclick="RecallFn()">Recall</button>
+        <button id="reset-btn" onclick="ResetForm()">Reset</button>
+      </div>
+
+      <textarea
+        name="screen"
+        id="screen-ta"
+        cols="30"
+        rows="10"
+        placeholder="Screen"
+      ></textarea>
+    </div>
+  </body>
+</html>

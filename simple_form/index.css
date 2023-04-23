@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 12vw;
+}
+.form {
+  background-color: aliceblue;
+  display: grid;
+  gap: 4vh;
+  padding: 2vh 4vw;
+  border: solid 8px lightblue;
+}
+.inputs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.inputs-div input,
+.inputs-div select {
+  line-height: 2rem;
+  font-size: 12px;
+  text-indent: 12px;
+  min-height: 2rem;
+  outline: none;
+  border: solid 1px lightgray;
+}
+.inputs-div input:focus,
+.inputs-div select:focus {
+  outline: solid 2px lightblue;
+}
+
+.form textarea {
+  box-shadow: 0 0 7px 0 rgb(55, 58, 59);
+  border-radius: 3px;
+  max-width: 300px;
+  max-height: 200px;
+  padding: 2%;
+}
