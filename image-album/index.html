@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phones album</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        background-color: aliceblue;
+        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        color: #fe3a3a7d;
+      }
+
+      .image-and-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .goto {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(235, 235, 235);
+        width: fit-content;
+        padding: 12px;
+        border-radius: 6px;
+      }
+      .goto > input {
+        width: 60px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My album slider</h1>
+
+    <div class="container">
+      <div class="image-and-buttons">
+        <button onclick="previousImageFx()">Previous</button>
+        <img
+          id="imageEl"
+          src="./src/1.jpeg"
+          height="270px"
+          width="200px"
+          alt="image"
+        />
+        <button onclick="nextImageFx()">Next</button>
+      </div>
+      <span id="image-nameEl"></span>
+      <div class="goto">
+        <input type="text" id="goto-inputEl" oninput="gotoImageFx()" />
+        <button onclick="gotoImageFx()">Goto</button>
+      </div>
+    </div>
+
+    <script>
+      let images = [
+        {
+          name: "Image 1",
+          src: "./src/1.jpeg",
+          image_number: 1,
+        },
+        {
+          name: "Image 2",
+          src: "./src/2.jpeg",
+          image_number: 1,
+        },
+        {
+          name: "Image 3",
+          src: "./src/3.jpeg",
+          image_number: 1,
+        },
+        {
+          name: "Image 4",
+          src: "./src/4.jpeg",
+          image_number: 1,
+        },
+        {
+          name: "Image 5",
+          src: "./src/5.jpeg",
+          image_number: 1,
+        },
+      ];
+      let index = 0;
+
+      function nextImageFx() {
+        if (index === images.length - 1) {
+          // alert("Last index")
+          return;
+        }
+        index += 1;
+        document.getElementById("imageEl").src = images[index].src;
+        document.querySelector("#image-nameEl").textContent =
+          images[index].name;
+      }
+
+      function previousImageFx() {
+        if (index === 0) {
+          // alert("First image reached")
+          return;
+        }
+        index -= 1;
+        document.getElementById("imageEl").src = images[index].src;
+        document.querySelector("#image-nameEl").textContent =
+          images[index].name;
+      }
+      function gotoImageFx() {
+        let inputEl = document.getElementById("goto-inputEl");
+        if (
+          parseInt(inputEl.value) < 0 ||
+          parseInt(inputEl.value) > images.length - 1
+        ) {
+          return;
+        }
+        index = parseInt(inputEl.value) - 1;
+        document.getElementById("imageEl").src = images[index].src;
+        document.querySelector("#image-nameEl").textContent =
+          images[index].name;
+      }
+    </script>
+  </body>
+</html>
