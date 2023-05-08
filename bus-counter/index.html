@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus counter</title>
+    <style>
+      button {
+        font-size: 1.2rem;
+        font-weight: 900;
+      }
+      button:last-of-type {
+        background-color: blue;
+        color: white;
+        padding: 4px 1rem;
+        border-radius: 4px;
+        border: none;
+      }
+      button:active{
+        filter: opacity(.5);
+      }
+      #screen {
+        font-size: 5rem;
+        color: bisque;
+        background-color: gray;
+        box-shadow: 0 0 9px 0 gray;
+        border-radius: 4px;
+        min-height: 20vh;
+        min-width: 20vw;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        height: fit-content;
+        min-height: 40vh;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+      "
+    >
+      <h1>Bus counter</h1>
+      <div id="screen">Screen</div>
+      <div>
+        <button onclick="decreaseFx()">-</button>
+        <button onclick="incrementFx()">+</button>
+      </div>
+    </div>
+    <script>
+      let initialValue = 0;
+      function incrementFx() {
+        initialValue = initialValue + 1;
+        console.log(initialValue)
+        document.getElementById("screen").textContent=initialValue===1?initialValue+ ' bus':initialValue+ " buses";
+      }
+      const decreaseFx = ()=>{
+        initialValue-=1; 
+        document.querySelector('#screen').textContent=initialValue===1?initialValue+ ' bus':initialValue+ " buses";
+      }
+    </script>
+  </body>
+</html>
