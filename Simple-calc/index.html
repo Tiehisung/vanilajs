@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple calculator</title>
+    <style>
+      div {
+        display: grid;
+        gap: 2rem;
+        border: solid #e9905079 1px;
+        padding: 1rem;
+        border-radius: 3px;
+      }
+      input {
+        padding: 6px;
+      }
+      .buttons {
+        width: 20%;
+      }
+      .buttons button:first-of-type {
+        background-color: blue;
+        color: wheat;
+        border-radius: 3px;
+        border: none;
+        padding: 5px;
+      }
+      .buttons button:first-of-type:hover {
+        background-color: rgb(43, 43, 246);
+      }
+      .buttons button:first-of-type:active {
+        background-color: rgb(72, 72, 245);
+      }
+      span {
+        margin-left: auto;
+        margin-top: -7rem;
+        margin-right: 3rem;
+        font-size: 3rem;
+        color: teal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Basic arithmetic</h1>
+    <!-- Addition -->
+    <div class="add-cta">
+      <input id="add-input-El" type="text" placeholder="Number here" />
+      <div class="buttons">
+        <button onclick="acceptNextToAdd()">Next</button>
+        <button onclick="addResults()">Add +</button>
+      </div>
+      <span id="screenAdd"> screen </span>
+    </div>
+
+    <script>
+      let ans = 0;
+      function acceptNextToAdd() {
+        let nextValue = document.getElementById("add-input-El").value;
+        if (nextValue === "") {
+          alert("Empty field. Please enter a number");
+          return;
+        }
+        ans = ans + parseFloat(nextValue);
+        document.getElementById("add-input-El").value = "";
+      }
+      function addResults() {
+        document.getElementById("screenAdd").textContent = ans;
+      }
+    </script>
+  </body>
+</html>

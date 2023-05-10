@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Addition game</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+      #questionPane {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 20vh;
+        background-color: aliceblue;
+        box-shadow: 0 0 12px 0 gray;
+        border-radius: 10px;
+        padding: 0.4rem 1rem;
+      }
+      #questionPane div {
+        display: flex;
+        gap: 1.2rem;
+        border: solid gainsboro 2rem;
+        border-radius: 10px;
+        padding: 5px;
+      }
+      #questionPane span {
+        border: solid green 1px;
+        width: 2.6rem;
+        text-align: center;
+        font-size: 2rem;
+      }
+      #questionPane p {
+        height: 1.6rem;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color: saddlebrown;
+      }
+      #nextBtn {
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Addition game for kids</h1>
+    <div id="questionPane">
+      <div>
+        <span id="first-operandEl"></span>
+        <p>+</p>
+        <span id="second-operandEl"></span>
+        <p>=</p>
+        <span id="resultScreen"></span>
+      </div>
+      <button id="answerBtn" onclick="showAnswer()">Answer</button>
+    </div>
+    <button id="nextBtn" onclick="nextQuestion()">Next question</button>
+
+    <script>
+      function nextQuestion() {
+        document.querySelector("#first-operandEl").textContent = Math.floor(
+          Math.random() * 50
+        );
+        document.querySelector("#second-operandEl").textContent = Math.floor(
+          Math.random() * 50
+        );
+
+        document.getElementById("resultScreen").textContent = "";
+      }
+
+      function showAnswer() {
+        let firstValue = document.getElementById("first-operandEl").textContent;
+        let secondValue =
+          document.getElementById("second-operandEl").textContent;
+
+        if (firstValue === "" || secondValue === "") {
+          return alert("Empty fields are not accepted.");
+        }
+        let sum = parseInt(firstValue) + parseInt(secondValue);
+
+        document.getElementById("resultScreen").textContent = sum;
+      }
+    </script>
+  </body>
+</html>

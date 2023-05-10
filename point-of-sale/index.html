@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wood vender</title>
+    <style>
+      #selectionCta {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        padding: 1rem;
+      }
+      p {
+        width: 70px;
+      }
+      .buttons-div {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3.1rem;
+      }
+      body {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+      }
+      table {
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="selectionCta">
+      <select name="type" id="typeEl" onchange="priceSelector()">
+        <option value="">Select wood</option>
+        <option value="Mahogany">Mahogany</option>
+        <option value="Sapele">Sapele</option>
+        <option value="Wawa">Wawa</option>
+        <option value="Odum">Odum</option>
+        <option value="Kokodua">Kokodua</option>
+      </select>
+
+      <p id="priceEl">GHS Price</p>
+
+      <input type="text" id="quantityEl" placeholder="Enter quantity" />
+    </div>
+
+    <div class="buttons-div">
+      <button onclick="addToCart()">Add</button>
+      <button>Receipt</button>
+      <button>Reset All</button>
+    </div>
+
+    <table border="1" id="tableEl">
+      <caption>
+        Receipt
+      </caption>
+      <tr>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>GHS Price total</th>
+      </tr>
+    </table>
+
+    <script>
+      function priceSelector() {
+        let type = document.getElementById("typeEl").value;
+        let priceEl = document.getElementById("priceEl");
+        if (type === "Mahogany") {
+          priceEl.textContent = "110";
+        } else if (type === "Sapele") {
+          priceEl.textContent = "87";
+        } else if (type === "Wawa") {
+          priceEl.textContent = "90";
+        } else if (type === "Odum") {
+          priceEl.textContent = "100";
+        }
+      }
+
+      function addToCart() {
+        let type = document.getElementById("typeEl").value;
+        let price = document.getElementById("priceEl").textContent;
+        let quantity = document.getElementById("quantityEl").value;
+
+        let tr = document.createElement("tr");
+        tr.innerHTML =
+          "<td>" +
+          type +
+          "</td><td>" +
+          quantity +
+          "</td><td>" +
+          price +
+          "</tr>";
+
+        document.getElementById("tableEl").appendChild(tr);
+      }
+    </script>
+  </body>
+</html>

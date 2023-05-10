@@ -1,0 +1,7 @@
+This site is for kids to practice addition.
+
+A next button is pressed to reveal a new set of problem(expression).
+The kid tries hand on the problem first thing.
+Ultimate a result(answer) button is pressed to provide the correct answer.
+
+The new set of values to be added(operands) are dynamically generated using a random functionality.
