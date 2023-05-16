@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math practice game</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="logPane">
+      <form class="login-form" onsubmit="">
+        <div style="width: 100%">Login to start</div>
+        <input
+          required
+          type="text"
+          name="username"
+          placeholder="Username"
+          id="login-username-input"
+        />
+        <input
+          required
+          type="password"
+          name="password"
+          id="login-password-input"
+          placeholder="Password"
+        />
+        <button id="login-btn">Login</button>
+        <input type="reset" id="reset-btn" value="Reset" />
+        <h5 class="register-h" id="goto-register-H">Register instead</h5>
+        <span class="notice-log"></span>
+      </form>
+
+      <form class="register-form" style="display: none">
+        <div style="width: 100%">Register to start</div>
+
+        <input
+          required
+          type="text"
+          name="username"
+          placeholder="Username"
+          id="register-username-input"
+        />
+        <input
+          required
+          type="password"
+          name="password"
+          id="register-password-input"
+          placeholder="Password"
+        />
+        <button id="register-btn">Register user</button>
+        <input type="reset" value="Clear" />
+        <h5 class="register-h" id="goto-login-H">Login instead</h5>
+        <span class="notice-log register-notice"></span>
+      </form>
+    </header>
+
+    <main id="main">
+      <section class="control-panel">
+        <span style="color: cadetblue; font-weight: 700; font-size: x-large">
+          Challenge:
+          <select name="challengeLevel" id="challenge-levelId">
+            <option value="easy">Easy</option>
+            <option value="normal">Normal</option>
+            <option value="hard">Hard</option>
+            <option value="very hard">Very hard</option>
+          </select>
+        </span>
+        <select name="total_questions" id="total-questions-Id">
+          <option value="30">30 Questions</option>
+          <option value="25">25 Questions</option>
+          <option value="20">20 Questions</option>
+          <option value="15">15 Questions</option>
+          <option value="10">10 Questions</option>
+          <option value="5">5 Questions</option>
+        </select>
+        <select name="poolType" id="pool-type">
+          <option value="integers">Integers</option>
+          <option value="fractions">Fractions</option>
+          <option value="decimals">Decimals</option>
+          <option value="mixed_types">Mixed type</option>
+          <option value="percentages">Percentages</option>
+        </select>
+        <div id="timer-cta">
+          <span>
+            Timer
+            <select
+              name="timer"
+              id="timer-selectId"
+              style="
+                border: none;
+                border-left: solid 2px black;
+                background-color: rgb(172, 199, 129);
+                width: 90px;
+              "
+            >
+              <option value="300">5 min.</option>
+              <option value="600">10 min.</option>
+              <option value="900">15 min.</option>
+              <option selected value="1200">20 min.</option>
+              <option value="1500">25 min.</option>
+            </select>
+          </span>
+        </div>
+
+        <div class="control-buttons">
+          <button id="start-btn">
+            <img
+              src="../resources/blackarrow.png"
+              alt="start"
+              id="start-btnId"
+            />
+            Start
+          </button>
+
+          <button id="pause-btn"><strong>||</strong> Pause</button>
+
+          <button id="stop-btn" disabled>
+            <div></div>
+            Stop
+          </button>
+        </div>
+      </section>
+      <br />
+
+      <section class="questions-board-section">
+        <div style="display: grid; gap: 1rem; max-width: 200px;">
+          <button
+            style="height: fit-content; width: fit-content"
+            id="refresh-history-btn"
+          >
+            Refresh results history
+          </button>
+          <div id="history-links-cta"></div>
+        </div>
+
+        <div
+          style="
+            position: relative;
+            padding-bottom: 2rem;
+            display: flex;
+            flex-grow: 1;
+          "
+        >
+          <div id="query-board">
+            <span
+              style="
+                background-color: gray;
+                padding: 4px;
+                min-width: 80px;
+                text-align: center;
+                font-weight: bolder;
+                position: absolute;
+                bottom: 2px;
+                border-radius: 1rem;
+              "
+            >
+              RT : <b id="time-rem-id" style="color: #ffc2ac">--:--</b>
+            </span>
+            <div id="questions-screen">Screen</div>
+
+            <div class="next-pane">
+              <input
+                type="text"
+                name="answerEl"
+                id="ans-input-el"
+                placeholder="Answer"
+              />
+              <button disabled id="next-btn">Next</button>
+              <div>
+                <button disabled id="save-results-btn">Save</button>
+                <input
+                  disabled
+                  id="data-name-input"
+                  type="text"
+                  placeholder="Results name"
+                />
+              </div>
+              <p id="progress-id">Progress monitor</p>
+            </div>
+          </div>
+          <div class="notice-div"></div>
+        </div>
+      </section>
+
+      <hr style="width: 100%" />
+      <div
+        class="avatar"
+        style="
+          position: absolute;
+          bottom: 1rem;
+          right: 1rem;
+          color: graytext;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        "
+      >
+        <span
+          class="avatar-name"
+          style="background: gainsboro; text-transform: capitalize"
+          >username</span
+        >
+        <button id="logout-btn" style="color: brown">Logout</button>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

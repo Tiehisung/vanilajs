@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+.inputCont {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(174, 69, 69), rgb(64, 156, 64));
+}
+input {
+  padding: 5px 1rem;
+}
+
+select{
+    padding: 5px ;
+    margin-top: 2rem;
+    margin-right: 32%;
+    color: rgb(177, 47, 186);
+}
+select option{
+    font-size: 1.3rem;
+}
+.todos-list {
+  background-color: aliceblue;
+  min-height: 3rem;
+  min-width: 200px;
+  width: 60vw;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 7px 0 gainsboro;
+}
+
+/* To li */
+.todoLi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  padding: 5px;
+  background-color: rgb(115, 135, 82);
+}
+.completedTodo{
+    text-decoration: line-through;
+    opacity: .2;
+    font-style: italic;
+    color: gray;
+    background-color: rgba(13, 13, 13, 0.838);
+}
+
+.fallOnDelete{
+    transition: all .5s ease;
+    opacity: 0;
+    transform: translateY(14rem) rotateZ(50deg);
+}
+
+.delete-btn {
+  color: red;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.mark-btn {
+  color: rgb(51, 221, 54);
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+.markAndDelCta {
+  display: flex;
+  gap: 12px;
+}
+span {
+  max-width: 70%;
+  overflow: hidden;
+  height: 1.3rem;
+  display: flex;
+  text-align: center;
+  color: hsl(180, 100%, 48%);
+  text-transform: capitalize;
+}
